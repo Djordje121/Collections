@@ -12,4 +12,4 @@ Sllist *fillList(Sllist *head);
 
 /** Add doc..
  */
-Sllist *AddItem(Sllist *head);
+Sllist *addItem(Sllist *head);

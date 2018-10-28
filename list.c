@@ -13,6 +13,8 @@ int main(void)
     
    printf("printing list......\n");
    printList(head);
+
+   dispose(head);
   
   return 0;
 }
@@ -26,9 +28,10 @@ Sllist *fillList(Sllist *head)
     do
     {
 
-     head = AddItem(head);
+     head = addItem(head);
      printf("item successfully added, to continiue press 1, to quit press 0\n");
      n = get_int();
+
     }
     while(n != 0);
 
@@ -36,7 +39,7 @@ Sllist *fillList(Sllist *head)
 }
 
 // <inherit.doc/> 
-Sllist *AddItem(Sllist *head)
+Sllist *addItem(Sllist *head)
 {
    int n = 0;
    printf("enter value: ");
