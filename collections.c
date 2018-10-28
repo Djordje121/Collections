@@ -4,37 +4,6 @@
 
 #include "collections.h"
 
-Sllist *head;
-
-int main(void)
-{
-
-  head = Create(20); 
-
-  head = insert(head, 30);
-  head = insert(head, 40);
-  head = insert(head, 50);
-  head = insert(head, 60);
-
-  bool result = findElement(head, 60);
-  if(result)
-  {
-    printf("deleting item..\n");
-    deleteNode(&head, 60);
-  }
-  else printf("no item founded\n");
- 
-
-  printf("printing list...\n");
-  printList(head);
-  
-
-
-  dispose(head);
-
-  return 0; 
-  
-}
 
 /* inherit.doc */
 void printList(Sllist *head)
@@ -82,20 +51,14 @@ bool findElement(Sllist *head, int val)
      if(head == NULL)
       exit(55555);   // throw null pointer exception exception
 
-     Sllist *current = head;
-     while(current != NULL)
+     while(head != NULL)
      {
-        if(current->value == val)
+        if(head->value == val)
         {
-            current = NULL;
-            free(current);
             return true;
         }
-        current = current->next; //moving pointer
+        head = head->next; //moving pointer
      }
-
-    current = NULL;
-    free(current);
 
     return false;
 }
@@ -125,7 +88,7 @@ void deleteNode(Sllist **head, int value)
         Sllist *tmp = *head;
         (*head) = (*head)->next; 
 
-         free(tmp);
+        free(tmp);
         return;
     }
 
